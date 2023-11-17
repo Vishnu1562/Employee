@@ -1,0 +1,181 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-image: url('https://media.licdn.com/dms/image/D5612AQGFXsDjGY9abw/article-cover_image-shrink_600_2000/0/1681457011808?e=2147483647&v=beta&t=rgBhK2CWsh8DSS154hiKGGfA6zZPuxn6LYORkjWYctQ'); 
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 96vh;
+      margin: 0;
+      padding:0%
+    }
+
+    
+    .container {
+      display: flex;
+      padding-top: 13vh;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+   
+    .row {
+      display: contents;
+    }
+  </style>
+  <title>Bootstrap Example</title>
+</head>
+<body>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="input-group mb-3">
+        <div class="custom-file">
+          <input type="file" style="cursor: pointer;" class="custom-file-input" (change)="onFileSelected($event)" accept=".xlsx">
+          <label class="custom-file-label">{{fname}}</label>
+        </div>
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button" (click)="uploadFile()">Upload</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="dataRetrieved" class="mt-4">
+    <h2>Data Retrieved from Database</h2>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Column 1</th>
+          <th>Column 2</th>
+          <th>Column 3</th>
+          <th>Column 4</th>
+          <th>Column 5</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr *ngFor="let row of retrievedData">
+          <td>{{ row.column1 }}</td>
+          <td>{{ row.column2 }}</td>
+          <td>{{ row.column3 }}</td>
+          <td>{{ row.column4 }}</td>
+          <td>{{ row.column5 }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<script>
+  
+  function getDataFromDatabase() {
+    return [
+      { column1: 'Data 1', column2: 'Data 2', column3: 'Data 3', column4: 'Data 4', column5: 'Data 5' },
+    
+    ];
+  }
+  var retrievedData = getDataFromDatabase();
+</script>
+
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Add Bootstrap CSS link -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-image: url('https://professor-excel.com/wp-content/uploads/2016/01/Wallpaper_Excel_1.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      margin: 0;
+      padding: 0%;
+    }
+ 
+    .container {
+      margin-top: 50px;
+      padding: 20px;
+    }
+ 
+    /* Add background color to the table */
+    table {
+      background-color: lightgreen; /* Set your desired background color */
+    }
+  </style>
+  <title>Bootstrap Example</title>
+</head>
+<body>
+ 
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Select your Excel File</span>
+          </div>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" (change)="onFileSelected($event)" accept=".xlsx">
+            <label class="custom-file-label">{{ selectedFileName || 'Choose file' }}</label>
+          </div>
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="button" (click)="uploadFile()">Upload</button>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+    <div *ngIf="dataRetrieved" class="mt-4">
+      <h2>Data Retrieved</h2>
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>GPN</th>
+              <th>Email</th>
+              <th>ContactNumber</th>
+              <th>Address</th>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of retrievedData">
+              <td>{{ row.gpn }}</td>
+              <td>{{ row.email }}</td>
+              <td>{{ row.contactNumber }}</td>
+              <td>{{ row.address }}</td>
+              <td>{{ row.name }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Add Bootstrap JS and Popper.js scripts (optional but recommended for certain Bootstrap features) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ 
+</body>
+</html>
